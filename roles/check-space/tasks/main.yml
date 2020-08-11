@@ -1,0 +1,4 @@
+---
+- name: Check / freespace
+  shell: df / --output\=avail | tail -1
+  register: tmp_freespace

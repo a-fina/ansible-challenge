@@ -1,0 +1,6 @@
+---
+- name: "Do it only on systems where check returned 0"
+  shell: echo "Resize partition"
+  register: doing 
+- debug:
+    var: doing.stdout
