@@ -57,7 +57,11 @@ Vagrant.configure("2") do |config|
       apt-get install --yes software-properties-common
       apt-add-repository --yes --update ppa:ansible/ansible
       apt-get install --yes ansible
-      apt-get install --yes python3-pip libssl-dev
+
+      apt-get install --yes build-essential libssl-dev libffi-dev python3-dev python3-pip
+      python3 -m pip install --upgrade --user setuptools
+      python3 -m pip install --user "molecule[lint]"
+      python3 -m pip install -U git+https://github.com/ansible-community/molecule
 
       whoami
 
@@ -70,10 +74,10 @@ Vagrant.configure("2") do |config|
 
       ansible all -m ping
       ansible-galaxy install haxorof.docker_ce
-      ansible-playbook /vagrant/playbook-role-docker.yml
+      ansible-playbook /vagrant/ansible-playbook/playbook-role-docker.yml
 
       ansible-galaxy install git+https://github.com/ExperitestOfficial/ansible-role-disk-space-validator
-      ansible-playbook /vagrant/playbook-disk-validator.yml
+      ansible-playbook /vagrant/ansible-playbook/playbook-disk-validator.yml
 
     SHELL
 

@@ -9,7 +9,10 @@ vagrant ssh ubuntu01
 vagrant ssh centos01 
 vagrant ssh centos02 
 
-
+ # Molecule test
+ molecule init role my-new-role
+ cd my-new-role
+ molecule test
 
 # Link
     https://www.linode.com/docs/applications/configuration-management/getting-started-with-ansible/#set-up-the-control-node
