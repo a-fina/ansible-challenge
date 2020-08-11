@@ -70,7 +70,10 @@ Vagrant.configure("2") do |config|
 
       ansible all -m ping
       ansible-galaxy install haxorof.docker_ce
-      ansible-playbook /vagrant/play-role-docker.yml
+      ansible-playbook /vagrant/playbook-role-docker.yml
+
+      ansible-galaxy install git+https://github.com/ExperitestOfficial/ansible-role-disk-space-validator
+      ansible-playbook /vagrant/playbook-disk-validator.yml
 
     SHELL
 
