@@ -1,0 +1,5 @@
+- hosts: localhost
+  roles:
+
+    - name: ansible-role-disk-space-validator
+      required_space_mb: 40000

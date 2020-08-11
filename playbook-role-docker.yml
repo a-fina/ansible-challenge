@@ -1,0 +1,3 @@
+- hosts: [kiratech]
+  roles:
+    - role: haxorof.docker_ce
