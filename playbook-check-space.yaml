@@ -1,0 +1,7 @@
+---
+- hosts: all
+  remote_user: root
+  roles:
+    - check-space
+    - role: resize 
+      when: tmp_freespace.stdout|float is lt 40000000
